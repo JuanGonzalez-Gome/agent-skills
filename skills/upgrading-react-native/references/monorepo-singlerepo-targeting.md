@@ -13,7 +13,6 @@ Small instruction set for selecting the correct app package and running upgrade 
 ```bash
 APP_DIR=apps/mobile
 npm pkg get dependencies.react-native devDependencies.react-native --prefix "$APP_DIR"
-cd "$APP_DIR/ios" && bundle exec pod install
 ```
 
 ## Rules
