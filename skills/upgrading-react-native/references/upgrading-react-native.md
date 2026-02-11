@@ -30,11 +30,13 @@ Router for React Native upgrade workflows. Start with core Upgrade Helper instru
 0. Run the [Prerequisites (All Upgrade Paths)](#prerequisites-all-upgrade-paths) checklist.
 1. Set `APP_DIR` to the app folder (`.` for single-app repos).
 2. Use [monorepo-singlerepo-targeting.md](monorepo-singlerepo-targeting.md) if you need help choosing `APP_DIR`.
-3. Run [upgrade-helper-core.md](upgrade-helper-core.md).
-4. Run [upgrading-dependencies.md](upgrading-dependencies.md) to assess risky packages and migrations.
-5. Run [react.md](react.md) when `react` is upgraded.
-6. Add [expo-sdk-upgrade.md](expo-sdk-upgrade.md) only if `expo` is present in `APP_DIR/package.json`.
-7. Finish with [upgrade-verification.md](upgrade-verification.md).
+3. Run [upgrade-helper-core.md](upgrade-helper-core.md) first to anchor changes to rn-diff-purge.
+4. Publish a short plan (ordered phases) before making versioned edits.
+5. Run [upgrading-dependencies.md](upgrading-dependencies.md) to assess risky packages and migrations.
+6. Apply dependency updates in one pass and run a single install with the repo package manager.
+7. Run [react.md](react.md) when `react` is upgraded.
+8. Add [expo-sdk-upgrade.md](expo-sdk-upgrade.md) only if `expo` is present in `APP_DIR/package.json`.
+9. Finish with [upgrade-verification.md](upgrade-verification.md).
 
 ## Decision Map
 

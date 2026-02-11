@@ -54,18 +54,29 @@ grep -n "^diff --git" /tmp/rn-diff-<current_version>..<target_version>.diff
    - Try exact raw diff: `<current_version>..<target_version>`.
    - If 404, try nearest available patch versions and report what was attempted.
    - If no available pair works, stop and ask user for target adjustment.
-5. Run dependency risk planning.
+5. Build dependency baseline from rn-diff-purge first.
+   - Start with the `RnDiffApp/package.json` diff for the exact version pair.
+   - Do not manually install RN packages one-by-one before this baseline is captured.
+6. Publish a short execution plan before edits.
+   - Include ordered phases: dependency baseline, one-pass install, native/tooling merges, verification.
+   - If dependency migrations are ambiguous, ask for user confirmation before modifying package choices.
+7. Run dependency risk planning.
    - Use [upgrading-dependencies.md](upgrading-dependencies.md).
-6. Build a change checklist from diff.
+   - Fold approved migrations into the same dependency update pass.
+8. Apply dependency updates in one pass.
+   - Update `APP_DIR/package.json` (and lockfile) from the baseline plus approved migrations.
+   - Run exactly one install command with the repo's package manager (`npm install`, `yarn install`, `pnpm install`, or `bun install`).
+   - Avoid piecemeal installs such as repeated `npm install <pkg>` unless explicitly requested.
+9. Build a change checklist from diff.
    - Group by JS/TS, iOS, Android, tooling.
    - Skip template-only UI (`App.tsx`) unless explicitly requested.
-7. Apply diff safely.
+   - Skip template-only dependencies (`@react-native/new-app-screen`) unless they exist in the app.
+10. Apply diff safely.
    - Treat `RnDiffApp` as placeholder; remap app/package names.
    - Merge, do not overwrite project-specific customizations.
-8. Reinstall and sync native deps.
-   - Run package manager install in app context.
+11. Sync native deps.
    - Run iOS pods in `APP_DIR/ios`.
-9. Validate and gate completion.
+12. Validate and gate completion.
    - iOS build passes.
    - Android build passes.
    - tests/typecheck/lint pass or failures are documented with next actions.
