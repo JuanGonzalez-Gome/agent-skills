@@ -47,14 +47,14 @@ See [stacked-pr-workflow.md][stacked-pr-workflow] for full step-by-step details.
 
 ## Quick Reference
 
-| File                                          | Description                                              |
-| --------------------------------------------- | -------------------------------------------------------- |
+| File | Description |
+| --- | --- |
 | [stacked-pr-workflow.md][stacked-pr-workflow] | Merge stacked PRs into main as individual squash commits |
 
-## Problem → Skill Mapping
+## Problem -> Skill Mapping
 
-| Problem                   | Start With                                    |
-| ------------------------- | --------------------------------------------- |
+| Problem | Start With |
+| --- | --- |
 | Merge stacked PRs cleanly | [stacked-pr-workflow.md][stacked-pr-workflow] |
 
 [stacked-pr-workflow]: references/stacked-pr-workflow.md

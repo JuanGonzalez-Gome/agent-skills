@@ -8,6 +8,7 @@ A collection of agent-optimized skills for AI coding assistants. Skills provide 
 | -------------------------------------------------------------------- | ------------------------------------------------------- |
 | [react-native-best-practices](./skills/react-native-best-practices/) | React Native optimization best practices from Callstack |
 | [github](./skills/github/)                                           | GitHub workflow patterns for PRs, code review, branching |
+| [github-actions](./skills/github-actions/)                           | GitHub Actions workflow patterns for React Native simulator/emulator build artifacts |
 | [upgrading-react-native](./skills/upgrading-react-native/)           | React Native upgrade workflow: templates, dependencies, and common pitfalls |
 | [react-native-brownfield-migration](./skills/react-native-brownfield-migration/) | Incremental migration strategy to adopt React Native or Expo in native apps using @callstack/react-native-brownfield, with setup, packaging, and phased integration steps |
 
@@ -186,8 +187,13 @@ agent-skills/
     │       └── bundle-*.md       # Bundling & app size skills
     │
     ├── github/
-    │   ├── SKILL.md              # Main skill file with workflow patterns
-    │   └── references/           # Detailed workflow files
+    │   ├── SKILL.md              # Main skill file with PR workflow patterns
+    │   └── references/           # Detailed GitHub workflow files
+    │
+    ├── github-actions/
+    │   ├── SKILL.md              # Main skill file for GitHub Actions build artifacts
+    │   ├── agents/openai.yaml    # Codex Skills UI metadata
+    │   └── references/           # iOS/Android action templates and download flows
     │
     ├── upgrading-react-native/
     │   ├── SKILL.md              # Main skill file with RN upgrade workflow routing
